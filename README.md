@@ -1,0 +1,1 @@
+My take on the Movie Watchlist solo project from the Scrimba Frontend Career Path!

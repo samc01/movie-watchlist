@@ -1,0 +1,158 @@
+body {
+    margin: 0
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* TYPOGRAPHY */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    color: #FFFFFF;
+}
+
+::placeholder {
+    color: #6B7280;
+}
+
+input,
+button {
+    font-size: inherit;
+}
+
+button {
+    color: #374151;
+}
+
+main p {
+    color: #DFDDDD;
+}
+
+.movie-info-title h3,
+.movie-info-title p {
+    color: black;
+}
+
+.movie-info-details p {
+    color: black;
+}
+
+.movie-info-description {
+    color: #6B7280;
+}
+
+/* LAYOUT */
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-image: url(images/background.jpg);
+    background-color: rgb(85, 76, 76);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+    height: 25vh;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-50%);
+}
+
+input,
+button {
+    border: 1px solid #D1D5DB;
+}
+
+input {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 60%;
+}
+
+::placeholder {
+    padding-left: 0.2em;
+}
+
+button {
+    background: #F9FAFB;
+    padding: 0.6em 1.2em;
+
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+
+    height: 75vh;
+}
+
+.movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+}
+
+.movie-image {
+    width: 25%;
+}
+
+.movie-info {
+    width: 60%;
+    margin-left: 2em;
+}
+
+.movie-info-title,
+.movie-info-details,
+.add-btn {
+    display: flex;
+    align-items: center;
+}
+
+.movie-info-title {
+    background: red;
+}
+
+.movie-info-title h3 {
+    margin-right: 0.5em;
+}
+
+.movie-info-title img {
+    margin-right: 0.2em;
+}
+
+.movie-info-details {
+    background: green;
+}
+
+.movie-info-details-duration {
+    margin-right: 1.5em;
+}
+
+.movie-info-details-category {
+    margin-right: 1em;
+}
+
+.add-btn img {
+    margin-right: 0.3em;
+}
+
+.movie-info-description {
+    background: blue;
+    margin: 0;
+}
