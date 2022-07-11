@@ -30,8 +30,12 @@ button {
     color: #374151;
 }
 
-main p {
+.main-placeholder p {
     color: #DFDDDD;
+}
+
+.main-placeholder div p {
+    color: #363636;
 }
 
 .movie-info-title h3,
@@ -67,6 +71,8 @@ header {
     display: flex;
     justify-content: center;
     transform: translateY(-50%);
+
+    margin-bottom: 1.5em;
 }
 
 input,
@@ -90,15 +96,30 @@ button {
 
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
+
+    cursor: pointer;
 }
 
-main {
+.main-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
 
     height: 75vh;
+}
+
+.main-placeholder p {
+    margin-bottom: 1em;
+}
+
+.main-placeholder div {
+    display: flex;
+    align-items: center;
+}
+
+.main-placeholder div p {
+    margin: 0 0 0 0.5em;
 }
 
 .movie-container {
@@ -106,10 +127,15 @@ main {
     justify-content: center;
     align-items: center;
     max-width: 600px;
+
+    border-bottom: 2px solid #E5E7EB;
+    padding-bottom: 1.5em;
+
+    margin: 0 auto;
 }
 
 .movie-image {
-    width: 25%;
+    width: 20%;
 }
 
 .movie-info {
@@ -119,40 +145,78 @@ main {
 
 .movie-info-title,
 .movie-info-details,
-.add-btn {
+.add-btn,
+.remove-btn {
     display: flex;
     align-items: center;
 }
 
-.movie-info-title {
-    background: red;
-}
-
 .movie-info-title h3 {
-    margin-right: 0.5em;
+    margin: 0 0.5em 0 0;
 }
 
 .movie-info-title img {
-    margin-right: 0.2em;
+    margin: 0 0.2em 0 0;
+}
+
+.movie-info-title p {
+    margin: 0;
 }
 
 .movie-info-details {
-    background: green;
+    margin: 1em 0;
 }
 
 .movie-info-details-duration {
-    margin-right: 1.5em;
+    margin: 0 1.5em 0 0;
 }
 
 .movie-info-details-category {
-    margin-right: 1em;
+    margin: 0 1em 0 0;
 }
 
-.add-btn img {
-    margin-right: 0.3em;
+.add-btn img,
+.remove-btn img {
+    margin: 0 0.3em 0 0;
+}
+
+.add-btn p,
+.remove-btn p {
+    margin: 0;
 }
 
 .movie-info-description {
-    background: blue;
     margin: 0;
 }
+
+@media (max-width: 400px) {
+      header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    header p {
+        margin-bottom: 2.5em;
+    }
+
+    .movie-info-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;;
+    }
+
+    .movie-info-details-category {
+        margin: 0.2em 0;
+    }
+
+    .movie-image {
+        width: 30%;
+    }
+
+    .movie-container {
+        padding: 0 1em;
+    }
+}
+
