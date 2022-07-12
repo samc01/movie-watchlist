@@ -131,11 +131,12 @@ button {
     border-bottom: 2px solid #E5E7EB;
     padding-bottom: 1.5em;
 
-    margin: 0 auto;
+    margin: 1em auto 0 auto;
 }
 
 .movie-image {
     width: 20%;
+    border-radius: 5px;
 }
 
 .movie-info {
