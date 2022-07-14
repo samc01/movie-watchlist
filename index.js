@@ -2,7 +2,6 @@
 const searchBtn = document.getElementById("search-btn")
 const input = document.getElementById("input")
 const mainIndex = document.getElementById("main-index")
-const addBtn = document.getElementById("add-btn")
 
 mainIndex.innerHTML = `<div class="main-placeholder">
                                 <img src="images/background-icon.png">
@@ -10,6 +9,15 @@ mainIndex.innerHTML = `<div class="main-placeholder">
                             </div>`
 
 searchBtn.addEventListener("click", displayMovies)
+
+function addMovieToWatchlist(event) {
+    const movie = event.target.parentElement.parentElement.parentElement.parentElement
+    const movieID = movie.getAttribute("id")
+    console.log(movie)
+    console.log(movieID)
+
+    localStorage.setItem(movieID, movie)
+}
 
 function displayMovies() {
     mainIndex.innerHTML = ""
@@ -22,7 +30,7 @@ function displayMovies() {
                     .then(response => response.json())
                     .then(data => {
                         const movieInfo = data
-                        mainIndex.innerHTML += `<div class="movie-container">
+                        mainIndex.innerHTML += `<div class="movie-container" id="${searchMoviesArray[i].imdbID}">
                                                     <img src="${searchMoviesArray[i].Poster}" class="movie-image">
                                                     <div class="movie-info">
                                                         <div class="movie-info-title">
@@ -33,7 +41,7 @@ function displayMovies() {
                                                         <div class="movie-info-details">
                                                             <p class="movie-info-details-duration">${movieInfo.Runtime}</p>
                                                             <p class="movie-info-details-category">${movieInfo.Genre}</p>
-                                                            <div id="add-btn">
+                                                            <div id="add-btn" onClick="addMovieToWatchlist(event)">
                                                                 <img src="images/plus-icon.png">
                                                                 <p>Watchlist</p>
                                                             </div>
