@@ -17,6 +17,12 @@ header {
     color: #FFFFFF;
 }
 
+header a {
+    color: inherit;
+    font-family: inherit;
+    text-decoration: none;
+}
+
 ::placeholder {
     color: #6B7280;
 }
@@ -34,7 +40,11 @@ button {
     color: #DFDDDD;
 }
 
-.main-placeholder div p {
+.main-placeholder a {
+    text-decoration: none;
+}
+
+.main-placeholder a p {
     color: #363636;
 }
 
@@ -113,12 +123,12 @@ button {
     margin-bottom: 1em;
 }
 
-.main-placeholder div {
+.main-placeholder a {
     display: flex;
     align-items: center;
 }
 
-.main-placeholder div p {
+.main-placeholder a p {
     margin: 0 0 0 0.5em;
 }
 
@@ -146,8 +156,8 @@ button {
 
 .movie-info-title,
 .movie-info-details,
-.add-btn,
-.remove-btn {
+#add-btn,
+#remove-btn {
     display: flex;
     align-items: center;
 }
@@ -176,13 +186,13 @@ button {
     margin: 0 1em 0 0;
 }
 
-.add-btn img,
-.remove-btn img {
+#add-btn img,
+#remove-btn img {
     margin: 0 0.3em 0 0;
 }
 
-.add-btn p,
-.remove-btn p {
+#add-btn p,
+#remove-btn p {
     margin: 0;
 }
 
