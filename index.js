@@ -2,6 +2,8 @@
 const searchBtn = document.getElementById("search-btn")
 const input = document.getElementById("input")
 const mainIndex = document.getElementById("main-index")
+const moviesArray = []
+const moviesWatchlist = []
 
 mainIndex.innerHTML = `<div class="main-placeholder">
                                 <img src="images/background-icon.png">
@@ -13,10 +15,14 @@ searchBtn.addEventListener("click", displayMovies)
 function addMovieToWatchlist(event) {
     const movie = event.target.parentElement.parentElement.parentElement.parentElement
     const movieID = movie.getAttribute("id")
-    console.log(movie)
-    console.log(movieID)
 
-    localStorage.setItem(movieID, movie)
+    for (let i = 0; i < moviesArray.length; i++) {
+        if (moviesArray[i].imdbID === movieID) {
+            moviesWatchlist.push(moviesArray[i])
+        }
+    }
+
+    localStorage.setItem("movies", JSON.stringify(moviesWatchlist))
 }
 
 function displayMovies() {
@@ -30,6 +36,15 @@ function displayMovies() {
                     .then(response => response.json())
                     .then(data => {
                         const movieInfo = data
+                        moviesArray.push({
+                            imdbID: searchMoviesArray[i].imdbID,
+                            Poster: searchMoviesArray[i].Poster,
+                            Title: movieInfo.Title,
+                            Value: movieInfo.Ratings[0].Value,
+                            Runtime: movieInfo.Runtime,
+                            Genre: movieInfo.Genre,
+                            Plot: movieInfo.Plot
+                        })
                         mainIndex.innerHTML += `<div class="movie-container" id="${searchMoviesArray[i].imdbID}">
                                                     <img src="${searchMoviesArray[i].Poster}" class="movie-image">
                                                     <div class="movie-info">
