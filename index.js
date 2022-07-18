@@ -16,13 +16,27 @@ function addMovieToWatchlist(event) {
     const movie = event.target.parentElement.parentElement.parentElement.parentElement
     const movieID = movie.getAttribute("id")
 
+    if (localStorage.getItem("movies") === null) {
+        for (let i = 0; i < moviesArray.length; i++) {
+            if (moviesArray[i].imdbID === movieID) {
+                moviesWatchlist.push(moviesArray[i])
+            }
+        }
+
+        localStorage.setItem("movies", JSON.stringify(moviesWatchlist))
+    } 
+
+    currentSavedMovies = JSON.parse(localStorage.getItem("movies"))
     for (let i = 0; i < moviesArray.length; i++) {
         if (moviesArray[i].imdbID === movieID) {
-            moviesWatchlist.push(moviesArray[i])
+            const newCurrentSavedMovies = currentSavedMovies.map(el => el.imdbID)
+            if (newCurrentSavedMovies.indexOf(movieID) === -1) {
+                currentSavedMovies.push(moviesArray[i])
+            }
         }
     }
 
-    localStorage.setItem("movies", JSON.stringify(moviesWatchlist))
+    localStorage.setItem("movies", JSON.stringify(currentSavedMovies))
 }
 
 function displayMovies() {

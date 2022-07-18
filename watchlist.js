@@ -2,9 +2,20 @@ const mainWatchlist = document.getElementById("main-watchlist")
 const removeBtn = document.getElementById("remove-btn")
 
 function displayMovies() {
+    mainWatchlist.innerHTML = ""
     const savedMovies = JSON.parse(localStorage.getItem("movies"))
 
-    if (savedMovies.length >= 1) {
+    if (savedMovies === null || savedMovies.length === 0) {
+        mainWatchlist.innerHTML = `<div class="main-placeholder">
+                                        <p>Your watchlist is looking a little empty...</p>
+                                        <a href="index.html">
+                                            <img src="images/plus-icon.png">
+                                            <p>Let's add some movies!</p>
+                                        </a>
+                                    </div>`
+    }
+
+    if (savedMovies.length > 0) {
         for (let i = 0; i < savedMovies.length; i++) {
             mainWatchlist.innerHTML += `<div class="movie-container" id="${savedMovies[i].imdbID}">
                                         <img src="${savedMovies[i].Poster}" class="movie-image">
@@ -26,14 +37,6 @@ function displayMovies() {
                                         </div>
                                     </div>`
         }
-    } else {
-        mainWatchlist.innerHTML = `<div class="main-placeholder">
-                                        <p>Your watchlist is looking a little empty...</p>
-                                        <a href="index.html">
-                                            <img src="images/plus-icon.png">
-                                            <p>Let's add some movies!</p>
-                                        </a>
-                                    </div>`
     }
 }
 
