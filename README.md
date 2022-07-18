@@ -1,1 +1,1 @@
-My take on the Movie Watchlist solo project from the Scrimba Frontend Career Path!
+My take on the movie watchlist project from Scrimba (https://scrimba.com/) Frontend Developer Career Path!
